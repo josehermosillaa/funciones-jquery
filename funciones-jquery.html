@@ -11,6 +11,15 @@
 
     <style>
         /* mis estilos */
+        #removeClass {
+            font-size: 18pt;
+
+        }
+
+        #addClass {
+            font-size: 18pt;
+
+        }
     </style>
 
 </head>
@@ -24,6 +33,16 @@
                 LA VISTA TITULO</button></div>
         <div class="col-md-6"><button id="vuelve" type="button"
                 class="btn btn-success p-5 text center fw-bold ms-5">VUELVE TITULO</button></div>
+        <div class="row">
+            <div class="col">
+                <button id="addClass" type="button"
+                    class="btn btn-primary ms-5 text-center mt-3 fw-bold p-5">OtroFondo</button>
+            </div>
+            <div class="col">
+                <button id="removeClass" type="button"
+                    class="btn btn-danger ms-5 mt-3 text-center fw-bold p-5">SinFondo</button>
+            </div>
+        </div>
     </div>
     <div class="row p-5">
         <div class="col-md-4 p-2 ">
@@ -53,6 +72,52 @@
             <button id="hide" type="button" class="btn btn-primary ms-5">ocultar</button>
             <button id="toggle" type="button" class="btn btn-danger">toggle</button>
             <button id="show" type="button" class="btn btn-primary me-5">mostrar</button>
+        </div>
+        <div class="row">
+            <div class="col">
+                <ul>
+                    <li class="inner"> yo no fui agregado con JQ</li>
+                    <li> yo no fui agregado con JQ</li>
+                    <li class="inner"> yo no fui agregado con JQ</li>
+                </ul>
+                <button id="before" type="button" class="btn btn-primary me-5">BEFORE?</button>
+                <button id="after" type="button" class="btn btn-danger me-5">AFTER?</button>
+            </div>
+            <div id="column" class="col">
+
+                <button id="app" type="button" class="btn btn-primary me-5">append</button>
+                <button id="app1" type="button" class="btn btn-danger me-5">CambioAppend</button>
+            </div>
+            <div class="col">
+                <button nombre="hola soy José Hermosilla Avila" id="secret" type="button"
+                    class="btn btn-primary me-5">BOTONSECRETO</button>
+                <button id="text" type="button" class="btn btn-primary me-5">QuediceBotonSecreto</button>
+            </div>
+            <div class="row">
+                <div class="col-6 mt-5">
+                    <input type="hidden" name="id" value="7">
+
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <input type="email" placeholder="ingrese su email" class="form-control" id="exampleInputEmail1"
+                            aria-describedby="emailHelp">
+                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    </div>
+
+                    <button pancho="HOLA" id="boton1" type="button" class="btn btn-primary">Valor del EMAIL</button>
+                    <button id="boton2" type="button" class="btn btn-primary">Valor del Password</button>
+
+                </div>
+            </div>
+
         </div>
 
 
@@ -96,8 +161,51 @@
                 $("#ctitle").fadeOut();
             })
             $("#vuelve").click(function () {
-                $("#ctitle").fadeIn();    
+                $("#ctitle").fadeIn();
             })
+            $("#removeClass").click(function () {
+                $("#ctitle").removeClass("bg-danger").removeClass("bg-success");
+            })
+            $("#addClass").click(function () {
+                $("#ctitle").addClass("bg-success");
+            })
+            $("#before").click(function () {
+                $(".inner").before("<li class='fw-bold text-primary'>HOLA JQ</li>");
+            })
+            $("#after").click(function () {
+                $(".inner").after("<li class='fw-bold text-danger'>HOLA JQ</li>");
+            })
+            $("#app").click(function () {
+                $("#column").append("<p class='parra text-success'>Aqui ME agrego</p>");
+            })
+            $("#app1").click(function () {
+                $(".parra").html("<h1 class='fw-bold text-danger'>CAMBIAMOS LOS APPEND");
+            })
+            $("#secret").click(function () {
+                let nombre = $(this).attr("nombre");
+                alert(nombre);
+            })
+            $("#text").click(function () {
+                alert($("#secret").text());
+                alert($("#secret").text("hola"));
+            })
+            $("#exampleInputEmail1").val("ASIGNACION");
+
+            $("#boton1").click(function () {
+                let email = $("#exampleInputEmail1").val(); // obetemos el valor del email.
+                alert(email);
+            });
+            $("#boton2").click(function () {
+                let password = $("#exampleInputPassword1").val(); // obetemos el valor del password.
+
+                if (password.length < 6) {
+                    alert("OJO TU CONSTREÑA ES INSEGURA. ");
+                }
+                if (password.length > 6) {
+                    alert("CONTRASEÑA FUERTE. ");
+                }
+            });
+
         </script>
 </body>
 
