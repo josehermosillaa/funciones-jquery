@@ -11,6 +11,8 @@
 
     <style>
         /* mis estilos */
+        /* *{ outline: 1px dotted red;
+        } */
         h1{
             font-size: 40pt;
         }
@@ -22,16 +24,16 @@
     <div class="container">
         <h1 class="fw-bold text-center ">Ninja Desapareciendo</h1>
         <div class="row">
-            <img class="col-md-3 p-3 mt-3" src="img/octocat.jpg" alt="logoocto">
-            <img class="col-md-3 p-3 mt-3" src="img/octocat.jpg" alt="logoocto">
-            <img class="col-md-3 p-3 mt-3" src="img/octocat.jpg" alt="logoocto">
-            <img class="col-md-3 p-3 mt-3" src="img/octocat.jpg" alt="logoocto">
+            <div class="col-md-3 align-self-start p-3 mt-3"><img src="img/ninja.gif" class="figure-img img-fluid rounded" alt="logoocto" ></div>
+            <div class="col-md-3 align-self-center p-3 mt-3""><img src="img/ninja.gif" class="figure-img img-fluid rounded" alt="logoocto"></div>
+            <div class="col-md-3 align-self-center p-3 mt-3""><img src="img/ninja.gif" class="figure-img img-fluid rounded" alt="logoocto"></div>
+            <div class="col-md-3 align-self-end p-3 mt-3"><img src="img/ninja.gif" class="figure-img img-fluid rounded" alt="logoocto"></div>            
         </div>
         <div class="row">
-            <img class="col-md-3 p-3 mt-3" src="img/octocat.jpg" alt="logoocto">
-            <img class="col-md-3 p-3 mt-3" src="img/octocat.jpg" alt="logoocto">
-            <img class="col-md-3 p-3 mt-3" src="img/octocat.jpg" alt="logoocto">
-            <img class="col-md-3 p-3 mt-3" src="img/octocat.jpg" alt="logoocto">
+            <div class="col-md-3 align-self-start p-3 mt-3"><img src="img/ninja.gif" class="figure-img img-fluid rounded" alt="logoocto"></div>
+            <div class="col-md-3 align-self-center p-3 mt-3""><img src="img/ninja.gif" class="figure-img img-fluid rounded" alt="logoocto"></div>
+            <div class="col-md-3 align-self-center p-3 mt-3""><img src="img/ninja.gif" class="figure-img img-fluid rounded" alt="logoocto"></div>
+            <div class="col-md-3 align-self-end p-3 mt-3"><img src="img/ninja.gif" class="figure-img img-fluid rounded" alt="logoocto"></div>
         </div>
         <button type="button" class="btn btn-primary text-center ms-5 px-5">Restore</button>
     </div>
@@ -51,10 +53,11 @@
 
     <script>
         $("img").click(function(){
-            $(this).hide();
+            $(this).fadeOut();
+            console.log(this);
         }) 
         $("button").click(function(){
-            $("img").show();
+            $("img").fadeIn();
         })
         
     </script>
